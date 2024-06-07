@@ -9,4 +9,7 @@ public interface EmployeeService {
     void save(Employee employee);
     Employee getById(long id);
     void deleteById(long id);
+
+    void updateEmployeeSalary(Long id, Double salary);
 }
+

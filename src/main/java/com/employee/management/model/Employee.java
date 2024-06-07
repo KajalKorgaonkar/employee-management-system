@@ -11,6 +11,8 @@ public class Employee {
     private String lastName;
     private String email;
     private String designation;
+    private double Salary;
+
 
     public long getId() {
         return id;
@@ -52,6 +54,14 @@ public class Employee {
         this.designation = designation;
     }
 
+    public double getSalary() {
+        return Salary;
+    }
+
+    public void setSalary(double salary) {
+        Salary = salary;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -60,6 +70,7 @@ public class Employee {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", designation='" + designation + '\'' +
+                ", Salary='" + Salary + '\'' +
                 '}';
     }
 }

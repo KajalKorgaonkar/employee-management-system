@@ -42,4 +42,16 @@ public class EmployeeController {
         employeeService.deleteById(id);
         return "redirect:/";
     }
+    @GetMapping("/employee/{id}")
+    public String viewEmployee(@PathVariable Long id, Model model) {
+        Employee employee = employeeService.getById(id);
+        model.addAttribute("employee", employee);
+        return "employee-details";
+    }
+
+    @PostMapping("/employee/{id}/update-salary")
+    public String updateEmployeeSalary(@PathVariable Long id, @RequestParam Double salary) {
+        employeeService.updateEmployeeSalary(id, salary);
+        return "redirect:/employee/" + id;
+    }
 }

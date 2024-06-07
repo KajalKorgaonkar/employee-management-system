@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Employee Details</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+<body>
+<div class="container">
+    <h1 class="my-4">Employee Details</h1>
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">First Name: <span th:text="${employee.firstName}"></span></h5>
+            <p class="card-text">Last Name: <span th:text="${employee.lastName}"></span></p>
+            <p class="card-text">Email id: <span th:text="${employee.email}"></span></p>
+            <p class="card-text">Department: <span th:text="${employee.designation}"></span></p>
+            <p class="card-text">Salary: <span th:text="${employee.salary}"></span></p>
+        </div>
+    </div>
+    <h2>Update Salary</h2>
+    <form th:action="@{/employee/{id}/update-salary(id=${employee.id})}" method="post" class="mb-4">
+        <div class="form-group">
+            <label for="salary">Salary:</label>
+            <input type="number" id="salary" name="salary" class="form-control" step="0.01" required>
+        </div>
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+    <a th:href="@{/}" class="btn btn-secondary">Back to Home</a>
+</div>
+</body>
+</html>

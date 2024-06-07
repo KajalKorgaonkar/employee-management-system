@@ -55,4 +55,13 @@ public class EmployeeServiceImpl implements  EmployeeService  {
         }
 
     }
+
+    @Override
+    public void updateEmployeeSalary(Long id, Double salary) {
+        Employee employee = employeeRepository.findById(Math.toIntExact(id)).orElse(null);
+        if (employee != null) {
+            employee.setSalary(salary);
+            employeeRepository.save(employee);
+        }
+    }
 }
